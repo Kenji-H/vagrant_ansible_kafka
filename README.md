@@ -7,7 +7,7 @@ $ vagrant box add ubuntu15.04 https://github.com/kraksoft/vagrant-box-ubuntu/rel
 $ vagrant up
 ```
 
-### Run Virtual Machines
+### Run Ansible Playbook
 
 ```
 $ cd ansible
@@ -17,4 +17,5 @@ $ ansible all -m ping
     "changed": false, 
     "ping": "pong"
 }
+$ ansible-playbook site.yml
 ```
