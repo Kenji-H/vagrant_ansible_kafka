@@ -1,0 +1,11 @@
+- name: install confluent public key
+  apt_key: url="http://packages.confluent.io/deb/{{ confluent_repo_version }}/archive.key" state="present"
+
+- name: add confluent repository
+  apt_repository: repo="deb [arch=amd64] http://packages.confluent.io/deb/{{ confluent_repo_version }} stable main"
+
+- name: update apt
+  apt: update_cache=true
+
+- name: install confluent platform
+  apt: "name=confluent-platform-2.11={{ confluent_package_version }} state=present"
