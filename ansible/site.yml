@@ -1,7 +1,14 @@
 ---
-- name: apply common configuration to all nodes
+- name: common configuration
   hosts: all
   become: yes
 
   roles:
     - common
+
+- name: zookeeper specific configration
+  hosts: zookeeper
+  become: yes
+
+  roles:
+    - zookeeper
