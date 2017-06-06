@@ -1,0 +1,10 @@
+[Unit]
+Description=confluent platform schema registry
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/schema-registry-start /etc/schema-registry/schema-registry.properties
+ExecStop=/usr/bin/schema-registry-stop
+
+[Install]
+WantedBy=multi-user.target

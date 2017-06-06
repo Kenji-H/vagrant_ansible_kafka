@@ -1,0 +1,2 @@
+- name: start schema-registry
+  service: name=schema-registry state=started enabled=yes
