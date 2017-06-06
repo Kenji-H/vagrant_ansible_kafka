@@ -1,0 +1,2 @@
+- name: start rest-proxy
+  service: name=rest-proxy state=started enabled=yes

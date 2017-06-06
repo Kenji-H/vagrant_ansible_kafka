@@ -1,0 +1,10 @@
+[Unit]
+Description=confluent platform rest proxy
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/kafka-rest-start /etc/kafka-rest/kafka-rest.properties
+ExecStop=/usr/bin/kafka-rest-stop
+
+[Install]
+WantedBy=multi-user.target
