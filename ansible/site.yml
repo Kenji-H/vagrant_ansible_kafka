@@ -12,3 +12,24 @@
 
   roles:
     - zookeeper
+
+- name: kafka specific configration
+  hosts: kafka
+  become: yes
+
+  roles:
+    - kafka
+
+- name: schema registry specific configration
+  hosts: schema-registry
+  become: yes
+
+  roles:
+    - schema-registry
+
+- name: rest proxy specific configration
+  hosts: rest-proxy
+  become: yes
+
+  roles:
+    - rest-proxy
