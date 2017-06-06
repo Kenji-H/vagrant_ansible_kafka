@@ -1,0 +1,11 @@
+[Unit]
+Description=confluent platform kafka 
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/kafka-server-start /etc/kafka/server.properties
+ExecStop=/usr/bin/kafka-server-stop
+Environment="KAFKA_HEAP_OPTS=-Xmx256M"
+
+[Install]
+WantedBy=multi-user.target
