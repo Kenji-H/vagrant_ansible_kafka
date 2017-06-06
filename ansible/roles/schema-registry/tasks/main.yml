@@ -5,4 +5,4 @@
     owner: root
     group: root
     mode: 644
-    notify: start schema-registry
+  notify: start schema-registry
