@@ -1,3 +1,4 @@
 ---
+- include: install_util.yml
 - include: install_java.yml
 - include: install_confluent.yml
