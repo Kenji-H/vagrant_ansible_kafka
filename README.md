@@ -4,6 +4,7 @@
 ```
 $ cd vagrant
 $ vagrant box add ubuntu15.04 https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/15.04/ubuntu-15.04-amd64.box
+$ vagrant plugin install vagrant-hosts
 $ vagrant up
 ```
 
