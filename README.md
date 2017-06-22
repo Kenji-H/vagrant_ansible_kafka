@@ -11,8 +11,11 @@ $ vagrant up
 
 ```
 $ cd ansible
-$ vi ansible.cfg  # update private_key_file value
 $ ansible all -m ping
+192.168.33.12 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
 192.168.33.11 | SUCCESS => {
     "changed": false, 
     "ping": "pong"
