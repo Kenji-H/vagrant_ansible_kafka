@@ -1,2 +1,5 @@
 - name: install emacs
   apt: name='emacs24' state=latest
+
+- name: install git
+  apt: name='git' state=latest
