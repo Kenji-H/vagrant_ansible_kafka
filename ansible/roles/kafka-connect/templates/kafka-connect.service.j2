@@ -1,0 +1,10 @@
+[Unit]
+Description=confluent platform kafka connect
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/kafka_connect_start
+ExecStop=/usr/bin/kafka_connect_stop
+
+[Install]
+WantedBy=multi-user.target
