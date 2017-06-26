@@ -1,2 +1,3 @@
 ---
 - include: install_kcbq.yml
+- include: create_connector_topics.yml

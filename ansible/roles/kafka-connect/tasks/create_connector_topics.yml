@@ -1,0 +1,14 @@
+- name: create connect-configs topic
+  shell: kafka-topics --create --zookeeper kafka-base:2181 --topic connect-configs --replication-factor 1 --partitions 1 --config cleanup.policy=compact
+  register: command_result
+  failed_when: "'TopicExistsException' not in command_result.stderr"
+
+- name: create connect-offsets topic
+  shell: kafka-topics --create --zookeeper kafka-base:2181 --topic connect-offsets --replication-factor 1 --partitions 50 --config cleanup.policy=compact
+  register: command_result
+  failed_when: "'TopicExistsException' not in command_result.stderr"
+
+- name: create connect-status topic
+  shell: kafka-topics --create --zookeeper kafka-base:2181 --topic connect-status --replication-factor 1 --partitions 10 --config cleanup.policy=compact
+  register: command_result
+  failed_when: "'TopicExistsException' not in command_result.stderr"
