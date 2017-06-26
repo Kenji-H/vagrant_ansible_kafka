@@ -1,2 +1,10 @@
 - name: start kafka-connect
   service: name=kafka-connect state=started enabled=yes
+
+- name: reload kafka-bigquery-connector
+  shell: "{{ item }}"
+  with_items:
+    - "curl -H \"Content-Type: application/json\" -X DELETE http://localhost:8083/connectors/bigquery-connector"
+    - "curl -H \"Content-Type: application/json\" -X POST http://localhost:8083/connectors -d @bq-connector.json"
+  args:
+    chdir: "/usr/local/kafka-connect-bigquery/"

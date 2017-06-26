@@ -10,6 +10,7 @@
     owner: root
     group: root
     mode: 0644
+  notify: reload kafka-bigquery-connector
 
 - name: bigquery service acount key
   template:
@@ -18,6 +19,7 @@
     owner: root
     group: root
     mode: 0644
+  notify: reload kafka-bigquery-connector
 
 - name: build kafka bigquery connector
   shell: ./gradlew clean confluentTarBall
