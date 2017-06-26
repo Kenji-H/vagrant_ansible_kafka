@@ -1,3 +1,12 @@
+- name: kafka config
+  template:
+    src: server.properties.j2
+    dest: /etc/kafka/server.properties
+    owner: root
+    group: root
+    mode: 644
+  notify: start kafka
+
 - name: kafka systemd script
   template:
     src: kafka.service.j2
