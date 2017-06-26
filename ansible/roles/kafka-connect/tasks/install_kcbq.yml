@@ -44,3 +44,11 @@
   shell: tar -C bin/jar/ -xf bin/tar/kcbq-connector-*-confluent-dist.tar
   args:
     chdir: /usr/local/kafka-connect-bigquery/
+
+- name: run script
+  template:
+    src: run_connector.sh.j2
+    dest: /usr/local/kafka-connect-bigquery/run_connector.sh
+    owner: root
+    group: root
+    mode: 0755

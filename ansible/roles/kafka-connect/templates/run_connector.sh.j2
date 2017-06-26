@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+export CLASSPATH="$CLASSPATH:$BASE_DIR/bin/jar/*"
+DISTRIBUTED_PROPS="$BASE_DIR/distributed.properties"
+
+exec "connect-distributed" "$DISTRIBUTED_PROPS"
