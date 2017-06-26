@@ -12,7 +12,7 @@
     mode: 0644
   notify: reload kafka-bigquery-connector
 
-- name: bigquery service acount key
+- name: bigquery service account key
   template:
     src: bq_service_account_key.json.j2
     dest: /usr/local/kafka-connect-bigquery/bq_service_account_key.json
