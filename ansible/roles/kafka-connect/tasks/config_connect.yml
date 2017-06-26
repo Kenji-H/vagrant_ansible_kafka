@@ -1,3 +1,27 @@
+- name: kafka connect distributed config
+  template:
+    src: distributed.properties.j2
+    dest: /etc/kafka/distributed.properties
+    owner: root
+    group: root
+    mode: 0644
+
+- name: kafka connect start script
+  template:
+    src: kafka_connect_start.j2
+    dest: /usr/bin/kafka_connect_start
+    owner: root
+    group: root
+    mode: 0755
+
+- name: kafka connect stop script
+  template:
+    src: kafka_connect_stop.j2
+    dest: /usr/bin/kafka_connect_stop
+    owner: root
+    group: root
+    mode: 0755
+
 - name: create connect-configs topic
   shell: kafka-topics --create --zookeeper kafka-base:2181 --topic connect-configs --replication-factor 1 --partitions 1 --config cleanup.policy=compact
   register: command_result

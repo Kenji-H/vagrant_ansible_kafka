@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export CLASSPATH="$CLASSPATH:/usr/local/kafka-connect-bigquery/bin/jar/*"
+exec "connect-distributed" "/etc/kafka/distributed.properties"

@@ -1,15 +1,7 @@
-- name: git clone kafka connect bigquery
+- name: download kafka connect bigquery
   git:
     repo: https://github.com/wepay/kafka-connect-bigquery.git
     dest: /usr/local/kafka-connect-bigquery
-
-- name: kafka connect distributed config
-  template:
-    src: distributed.properties.j2
-    dest: /usr/local/kafka-connect-bigquery/distributed.properties
-    owner: root
-    group: root
-    mode: 0644
 
 - name: kafka bigquery connector config
   template:
@@ -32,7 +24,7 @@
   args:
     chdir: /usr/local/kafka-connect-bigquery
 
-- name: create jar dir
+- name: create kafka-connect-bigquery jar dir
   file:
     path: /usr/local/kafka-connect-bigquery/bin/jar
     state: directory
@@ -40,15 +32,7 @@
     group: root
     mode: 0755
 
-- name: extract jar files
+- name: extract kafka-connect-bigquery jar files
   shell: tar -C bin/jar/ -xf bin/tar/kcbq-connector-*-confluent-dist.tar
   args:
     chdir: /usr/local/kafka-connect-bigquery/
-
-- name: run script
-  template:
-    src: run_connector.sh.j2
-    dest: /usr/local/kafka-connect-bigquery/run_connector.sh
-    owner: root
-    group: root
-    mode: 0755
