@@ -1,0 +1,19 @@
+{
+  "name": "bigquery-connector",
+  "config": {
+    "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+    "tasks.max": 1,
+    "topics": "kcbq-quickstart",
+    "sanitizeTopics": true,
+    "autoCreateTables": true,
+    "autoUpdateSchemas": true,
+    "schemaRetriever": "com.wepay.kafka.connect.bigquery.schemaregistry.schemaretriever.SchemaRegistrySchemaRetriever",
+    "schemaRegistryLocation": "http://kafka-base:8081",
+    "bufferSize": 100000,
+    "maxWriteSize": 10000,
+    "tableWriteWait": 1000,
+    "project": "{{ bigquery_project }}",
+    "datasets": ".*={{ bigquery_dataset }}",
+    "keyfile": "/usr/local/kafka-connect-bigquery/bq_service_account_key.json"
+  }
+}

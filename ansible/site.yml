@@ -33,3 +33,10 @@
 
   roles:
     - rest-proxy
+
+- name: kafka connect specific configration
+  hosts: kafka-connect
+  become: yes
+
+  roles:
+    - kafka-connect
